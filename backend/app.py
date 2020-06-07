@@ -21,6 +21,11 @@ def add():
     data_access.insert(data)
     return ('added')
 
+@app.route('/remove', methods=['POST', 'GET'])
+def remove():
+    data_access.delete(request.args.get('id'))
+    return ('removed')
+
 '''class Index(Resource):
     @app.route('/')
     def get(self):
