@@ -26,6 +26,12 @@ def remove():
     data_access.delete(request.args.get('id'))
     return ('removed')
 
+@app.route('/all', methods=['POST', 'GET'])
+def get_all():
+    data = data_access.select_all()
+    print(data)
+    return ', '.join([str(i) for i in data])
+
 '''class Index(Resource):
     @app.route('/')
     def get(self):
